@@ -65,3 +65,7 @@ form span {
 #students-section{
     display: none;
 }
+#resend-verification-button{
+    color: black;
+    background-color: #6b7280;
+}

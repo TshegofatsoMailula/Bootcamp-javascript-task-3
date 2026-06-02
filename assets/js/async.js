@@ -36,6 +36,7 @@ let studentDatabase = [{
     age: 28
 }];
 document.addEventListener("DOMContentLoaded", () => {
+    enableSubmitButton();
     displaySynchronousFunction();
     displayStudentRecords();
     const form = document.getElementById("form-wrapper");
@@ -55,6 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const email_address = formData.get("email-address");
         const password = formData.get("password");
         const password_confirmation = formData.get("password-confirmation");
+        
+        //Client-side validation
         inputValidated = validation(inputs,username,email_address,password,password_confirmation,inputValidated);
         if(inputValidated)
         {
@@ -62,6 +65,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 });
+//Timing events
+function enableSubmitButton()
+{
+    let totalSeconds = 10;
+    const interval = setInterval(()=>{
+         if(totalSeconds>=0)
+        {
+            document.getElementById("seconds-remaining").textContent = `You can resend the verification code in ${totalSeconds}`;
+        }
+        if(totalSeconds==0)
+        {
+            clearInterval(interval);
+            document.getElementById("resend-verification-button").disabled = false;
+            document.getElementById("resend-verification-button").style.backgroundColor = "#093c69";
+                       document.getElementById("resend-verification-button").style.color = "white";
+            document.getElementById("seconds-remaining").textContent = "You can resend verification";
+        }
+        totalSeconds--;   
+    },1000);
+}
 
 //Synchronous execution
 function displaySynchronousFunction()
@@ -77,6 +100,7 @@ function createRow(text,display)
  row.textContent = text;
  display.appendChild(row);
 }
+
 //Using setTimeout()
 function displayStudentRecords()
 {
