@@ -66,11 +66,17 @@ document.addEventListener("DOMContentLoaded", () => {
 //Synchronous execution
 function displaySynchronousFunction()
 {
-    console.log("Step 1 - The function is starting");
-    console.log("Step 2 - The process is in action");
-    console.log("Step 3 - The function reached the final stage");
+    const display = document.getElementById("display-messages");
+    createRow("Step 1 - The function is starting",display);
+    createRow("Step 2 - The process is in action",display);
+    createRow("Step 3 - The function reached the final stage",display);
 }
-
+function createRow(text,display)
+{
+ const row = document.createElement("li");
+ row.textContent = text;
+ display.appendChild(row);
+}
 //Using setTimeout()
 function displayStudentRecords()
 {
