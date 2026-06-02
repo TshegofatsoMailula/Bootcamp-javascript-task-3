@@ -1,16 +1,17 @@
-export default function validation(inputs,username,email_address,password,password_confirmation,inputValidated)
+export default function validation(inputs,username,email_address,password,password_confirmation,inputValidated,terms)
 {
     const email_regular_expression = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!username && !email_address && !password && !password_confirmation)
+   
+    if(!username && !email_address && !password && !password_confirmation && !terms)
     {
         inputs.forEach(input=>{
             input.style.border = "1px solid red";
         })
-        inputValidated = false;
         document.getElementById("username-error").textContent = "Username is required";
         document.getElementById("email-address-error").textContent = "Email address is required";
         document.getElementById("password-error").textContent = "Password is required";
         document.getElementById("password-confirmation-error").textContent = "Password confirmation is required";
+        document.getElementById("terms").style.outline = "1px solid red";  
     }
     if(!username)
     {
@@ -59,6 +60,11 @@ export default function validation(inputs,username,email_address,password,passwo
     {
         document.getElementById("password-confirmation").style.border = "1px solid red";
                 document.getElementById("password-confirmation-error").textContent = "Passwords do not match";
+        inputValidated = false;
+    }
+    if(terms==false)
+    {
+        document.getElementById("terms").style.outline = "1px solid red";  
         inputValidated = false;
     }
     return inputValidated;

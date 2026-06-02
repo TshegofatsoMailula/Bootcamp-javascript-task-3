@@ -27,7 +27,9 @@ nav{
     justify-content: space-between;
     align-items: center;
 }
-
+.text-field{
+    width:100%;
+}
 section
 {
     width: 100%;
@@ -40,12 +42,8 @@ input{
     font-family: inherit;
     outline: none;
     transition: 0.3s;
-    width: 100%;
 }
-form div{
-    width: 100%;
-    padding: 0.2em;
-}
+
 form button{
     padding: 1em;
     border: none;
@@ -84,4 +82,13 @@ form span {
 #resend-verification-button{
     color: black;
     background-color: #6b7280;
+}
+.checkbox-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 1em 0;
+}
+.checkbox-section p{
+    margin: 0;
 }

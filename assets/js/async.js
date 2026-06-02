@@ -40,25 +40,29 @@ document.addEventListener("DOMContentLoaded", () => {
     displaySynchronousFunction();
     displayStudentRecords();
     const form = document.getElementById("form-wrapper");
-    let inputValidated = true;
     form.addEventListener("submit",async(event)=>{
+        let inputValidated = true;
         event.preventDefault();
         const inputs = document.querySelectorAll("input");
+        //Reset error messages and outlines
         document.querySelectorAll(".error-message").textContent = "";
+        document.getElementById("terms").style.outline = "none";  
         inputs.forEach(input=>{
             input.style.border = "1px solid #ddd";
         })
         document.querySelectorAll(".error-message").forEach(span => {
             span.textContent = "";
         });
+        
         const formData = new FormData(form);
         const username = formData.get("username");
         const email_address = formData.get("email-address");
         const password = formData.get("password");
         const password_confirmation = formData.get("password-confirmation");
-        
+        const terms = document.getElementById("terms").checked;
+        console.log(terms);
         //Client-side validation
-        inputValidated = validation(inputs,username,email_address,password,password_confirmation,inputValidated);
+        inputValidated = validation(inputs,username,email_address,password,password_confirmation,inputValidated,terms);
         if(inputValidated)
         {
             console.log("All field validated");
@@ -79,7 +83,7 @@ function enableSubmitButton()
             clearInterval(interval);
             document.getElementById("resend-verification-button").disabled = false;
             document.getElementById("resend-verification-button").style.backgroundColor = "#093c69";
-                       document.getElementById("resend-verification-button").style.color = "white";
+            document.getElementById("resend-verification-button").style.color = "white";
             document.getElementById("seconds-remaining").textContent = "You can resend verification";
         }
         totalSeconds--;   
