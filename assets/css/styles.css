@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body{
     margin: 0;
     padding: 0;
@@ -5,9 +8,13 @@ body{
     line-height: 1.6;
     background-color: #f8f9fb;
     color: #111;
+    width: 100%;
+    box-sizing: border-box;
 }
-#form-wrapper{
-    
+
+section
+{
+    width: 100%;
 }
 input{
     padding: 1em;
@@ -17,4 +24,44 @@ input{
     font-family: inherit;
     outline: none;
     transition: 0.3s;
+    width: 100%;
+}
+form div{
+    width: 100%;
+    padding: 0.2em;
+}
+form button{
+    padding: 1em;
+    border: none;
+    border-radius: 12px;
+    background-color: #093c69;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+form span {
+    color: red;
+    font-size: 0.85rem;
+}
+
+.table-head,#student-display li{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 10px;
+    margin: 0;
+    list-style: none;
+}
+
+.table-head
+{
+    background-color: #2c3e50;
+    color: white;
+    text-transform: uppercase;
+    border: 1px solid #ddd;
+}
+#students-section{
+    display: none;
 }

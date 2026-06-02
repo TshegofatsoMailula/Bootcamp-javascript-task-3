@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <script type="module" src="/assets/js/async.js" defer></script>
 </head>
 <body>
 <header>
@@ -13,38 +12,53 @@
 </header>
 <main>
 <section>
+    <h1>Student registration</h1>
     <form id="form-wrapper" method="POST">
         <div>
             <label>Username</label>
             <input type="text" id="username" name="username">
-            <span id="username-error"></span>
+            <span id="username-error" class="error-message"></span>
         </div>
         <div>
             <label>Email address</label>
-            <input type="email" id="email-address" name="email-address">
-            <span id="email-address-error"></span>
+            <input type="email" id="email-address" name="email-address" autocomplete="email">
+            <span id="email-address-error" class="error-message"></span>
         </div>
         <div>
             <label>Password</label>
             <input type="password" id="password" name="password" autocomplete="new-password">
-            <span id="password-error"></span>
+            <span id="password-error" class="error-message"></span>
         </div>
         <div>
             <label>Confirm password</label>
             <input type="password" id="password-confirmation" name="password-confirmation" autocomplete="new-password">
-            <span id="password-confirmation-error"></span>
+            <span id="password-confirmation-error" class="error-message"></span>
         </div>
         <div>
-
+            <p>By clicking on this, you are confirming that you have read our terms and conditions</p>
         </div>
         <div>
             <button type="submit">Sign up</button>
         </div>
     </form>
 </section>
+<section id="students-section">
+    <h2>Student information</h2>
+    <span id="timeout-message"></span>
+    <ul class="table-head">
+        <li>ID</li>
+        <li>First Name</li>
+        <li>Last Name</li>
+        <li>Email</li>
+        <li>Course</li>
+        <li>Age</li>
+    </ul>
+    <ul id="student-display"></ul>
+</section>
 </main>
 <footer>
 
 </footer>
+<script type="module" src="/assets/js/async.js"></script>
 </body>
 </html>

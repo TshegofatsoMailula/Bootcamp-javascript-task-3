@@ -7,16 +7,22 @@ export default function validation(inputs,username,email_address,password,passwo
             input.style.border = "1px solid red";
         })
         inputValidated = false;
+        document.getElementById("username-error").textContent = "Username is required";
+        document.getElementById("email-address-error").textContent = "Email address is required";
+        document.getElementById("password-error").textContent = "Password is required";
+        document.getElementById("password-confirmation-error").textContent = "Password confirmation is required";
     }
     if(!username)
     {
         document.getElementById("username").style.border = "1px solid red";
         inputValidated = false;
+        document.getElementById("username-error").textContent = "Username is required";
     }
     if(!email_address)
     {
         document.getElementById("email-address").style.border = "1px solid red";
         inputValidated = false;
+        document.getElementById("email-address-error").textContent = "Email address is required";
     }
     else if(!email_regular_expression.test(email_address))
     {
@@ -27,6 +33,7 @@ export default function validation(inputs,username,email_address,password,passwo
     if(!password)
     {
         document.getElementById("password").style.border = "1px solid red";
+        document.getElementById("password-error").textContent = "Password is required";
         inputValidated = false;
     }
     else if(password.length<8)
@@ -37,6 +44,8 @@ export default function validation(inputs,username,email_address,password,passwo
   
     if(!password_confirmation)
     {
+        
+        document.getElementById("password-confirmation-error").textContent = "Password confirmation is required";
         document.getElementById("password-confirmation").style.border = "1px solid red";
         inputValidated = false;
     }
@@ -49,6 +58,7 @@ export default function validation(inputs,username,email_address,password,passwo
     if(password_confirmation!==password)
     {
         document.getElementById("password-confirmation").style.border = "1px solid red";
+                document.getElementById("password-confirmation-error").textContent = "Passwords do not match";
         inputValidated = false;
     }
     return inputValidated;
